@@ -1,6 +1,3 @@
-# Shortly after 2.0 release action items:
-# (need to rush release a little bit because
-# the default shadow dom option has been enabled by atom!)
 # FIXME: Beacon code (currently broken in shadow).  This will probably return
 # in the form of a decoration with a "flash", not sure yet.
 # TODO: Merge in @willdady's code for better accuracy.
@@ -257,11 +254,13 @@ class JumpyView extends View
             useHomingBeacon = atom.config.get 'jumpy.useHomingBeaconEffectOnJumps'
             if useHomingBeacon
                 cursor = editorView.shadowRoot.querySelector '.cursors .cursor'
+                debugger
                 if cursor
+                    debugger
                     cursor.classList.add 'beacon'
-                    setTimeout ->
-                        cursor.classList.remove 'beacon'
-                    , 150
+                    # setTimeout ->
+                    #     cursor.classList.remove 'beacon'
+                    # , 150
             console.log "Jumpy jumped to: #{@firstChar}#{@secondChar} at " +
                 "(#{location.position.row},#{location.position.column})"
 
