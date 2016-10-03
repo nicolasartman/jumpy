@@ -8,10 +8,15 @@
 {View, $} = require 'space-pen'
 _ = require 'lodash'
 
+labelExclusions = atom.config.get('jumpy.labelExclusions')?.split('') or []
+
 lowerCharacters =
     (String.fromCharCode(a) for a in ['a'.charCodeAt()..'z'.charCodeAt()])
+    .filter (character) => !labelExclusions.includes(character)
 upperCharacters =
     (String.fromCharCode(a) for a in ['A'.charCodeAt()..'Z'.charCodeAt()])
+    .filter (character) => !labelExclusions.includes(character)
+
 keys = []
 
 # A little ugly.

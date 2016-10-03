@@ -24,6 +24,11 @@ module.exports =
             description: 'Jumpy will create labels based on this pattern.'
             type: 'string'
             default: '([A-Z]+([0-9a-z])*)|[a-z0-9]{2,}'
+        labelExclusions:
+            description: 'Jumpy will not use these characters in labels.'
+            type: 'string'
+            default: ''
+
 
     activate: (state) ->
         @jumpyView = new JumpyView state.jumpyViewState
